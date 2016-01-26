@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'home/front'
 
+  # get 'home/front'
+  root to: 'home#front'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Swolemates</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
-<body>
-<!-- Devise alerts -->
-<% if notice %>
-<p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-<p class="alert alert-danger"><%= alert %></p>
-<% end %>
-  <%= yield %>
 
+<body>
+  <%= render 'layouts/header' %>
+  <div class="container">
+    <!-- Devise alerts -->
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+      <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
+</div>
 </body>
 </html>

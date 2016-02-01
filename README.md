@@ -1,7 +1,7 @@
 # Swolemates
 
-- Bored at the gym and want someone to talk to?
 - Need a spotter you can count on?
+- Bored at the gym and want someone to talk to?
 - Want someone to keep you accountable?
 - Looking for someone to compete with?
 

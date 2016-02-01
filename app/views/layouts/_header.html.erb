@@ -4,6 +4,8 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
+        <% # if logged in, display HELLO message and link to acct %>
+        <% # else display default login/signup links %>
         <li><%= link_to "Log in", login_path %></li> 
         <li><%= link_to "Sign up", signup_path %></li> 
       </ul>

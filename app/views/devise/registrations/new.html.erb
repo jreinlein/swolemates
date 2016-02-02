@@ -5,21 +5,52 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :email, class: "required" %><br />
+    <%= f.email_field :email, autofocus: true, required: true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :first_name, class: "required" %><br />
+    <%= f.text_field :first_name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, class: "required" %><br />
+    <%= f.text_field :last_name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :gender, class: "required" %>
+    <div class="form_explanatory">Choose the gender in which you identify</div>
+    <%= f.radio_button :gender, "male", required: true %>
+    <%= f.label :gender, "Male", value: "male" %>
+    <%= f.radio_button :gender, "female", required: true %>
+    <%= f.label :gender, "Female", value: "female" %><br/>
+  </div>
+  
+  <div class="field">
+    <%= f.label :training_type %><br />
+    <% # TODO: change to represent actual model's potential values for this parameter. See 3.1 of http://guides.rubyonrails.org/form_helpers.html %>
+    <%= f.select(:training_type, options_for_select([['Placeholder A', 1], ['Placeholder B', 2], ['Placeholder C', 3]]), prompt: true) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :bio %><br />
+    <div class="form_explanatory">Feel free to include whatever you want! Other hobbies, your favourite pok&eacute;mon, anything your future swolemate may want to know about you.</div>
+    <%= f.text_area :bio, rows: "6" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class: "required" %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, required: true, autocomplete: "off" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.label :password_confirmation, class: "required" %><br />
+    <%= f.password_field :password_confirmation, required: true, autocomplete: "off" %>
   </div>
 
   <div class="actions">
@@ -28,4 +59,13 @@
 
 <%= render "devise/shared/links" %>
 <% end %>
+<!--
+    t.string   "first_name",             default: "", null: false
+    t.string   "last_name",              default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "gender",                 default: "", null: false
+    t.string   "training_type",          default: ""
+    t.text     "bio",                    default: ""
 
+-->
